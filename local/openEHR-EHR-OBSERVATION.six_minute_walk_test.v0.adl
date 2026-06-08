@@ -1,0 +1,276 @@
+archetype (adl_version=1.4; uid=f0068738-11b6-4606-a924-63d422db3b66)
+	openEHR-EHR-OBSERVATION.six_minute_walk_test.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2026-06-08">
+		["name"] = <"Sebastian Iancu">
+		["organisation"] = <"Code24">
+		["email"] = <"sebastian.iancu@code24.nl">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the result of a 6-minute walk test (6MWT): a sub-maximal test of functional exercise capacity in which a person walks as far as possible on a flat, hard surface in 6 minutes.">
+			keywords = <"6MWT", "six minute walk", "walk test", "functional exercise capacity", "walking distance", "exercise tolerance">
+			use = <"Use to record the primary outcome of a 6-minute walk test - the total distance walked - together with the walking duration achieved, number of laps, an optional Borg breathlessness rating, the walking aid used, the course length and a free-text comment.
+
+This is a minimal, distance-focused model. Paired pre/post vital signs (pulse oximetry, pulse, blood pressure), supplemental oxygen, rest/stop episodes and an overall clinical interpretation are intentionally out of scope and may be added in a template or a later version by composing the relevant published archetypes.">
+			misuse = <"Not to be used to record other timed or distance walk tests, such as the timed 25-foot walk, the incremental shuttle walk test or the 2-minute walk test.
+
+Not to be used to record continuous gait analysis or step counts from activity trackers.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- 6 Minute Walk Test
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {1..1} matches {    -- End of test
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {1..1} matches {    -- Distance walked
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"m">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Duration walked
+										value matches {
+											DV_DURATION matches {
+												value matches {|>=PT0S|}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Number of laps
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Borg breathlessness score
+										value matches {
+											0|[local::at0013],    -- Nothing at all
+											1|[local::at0014],    -- Very slight
+											2|[local::at0015],    -- Slight
+											3|[local::at0016],    -- Moderate
+											4|[local::at0017],    -- Somewhat severe
+											5|[local::at0018],    -- Severe
+											6|[local::at0019],    -- Severe to very severe
+											7|[local::at0020],    -- Very severe
+											8|[local::at0021],    -- Very severe to very, very severe
+											9|[local::at0022],    -- Very, very severe
+											10|[local::at0023]    -- Maximal
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0008] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Walking aid used
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0024,    -- None
+													at0025,    -- Walking stick/cane
+													at0026,    -- Crutches
+													at0027,    -- Walking frame/rollator
+													at0028,    -- Wheelchair
+													at0029]    -- Other
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Course length
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"m">
+										magnitude = <|>=0.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {    -- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"6 Minute Walk Test">
+					description = <"The result of a 6-minute walk test (6MWT), a sub-maximal test of functional exercise capacity.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"End of test">
+					description = <"The summary measurements recorded at the completion of the 6-minute walk test.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Distance walked">
+					description = <"Total distance walked during the 6-minute walk test.">
+					comment = <"The primary outcome of the test.">
+				>
+				["at0005"] = <
+					text = <"Duration walked">
+					description = <"The actual walking time achieved during the test.">
+					comment = <"Nominally 6 minutes (PT6M); record the actual duration if the test was stopped early.">
+				>
+				["at0006"] = <
+					text = <"Number of laps">
+					description = <"The number of complete laps of the course walked during the test.">
+				>
+				["at0007"] = <
+					text = <"Borg breathlessness score">
+					description = <"Rating of perceived breathlessness using the modified Borg CR10 scale.">
+					comment = <"Integer subset (0-10) of the modified Borg CR10 scale; the canonical 0.5 step is not represented because DV_ORDINAL requires integer values.">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Walking aid used">
+					description = <"The walking aid, if any, used by the person during the test.">
+				>
+				["at0010"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Course length">
+					description = <"The length of the walking course (e.g. the straight track length between turnaround points).">
+				>
+				["at0012"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the 6-minute walk test result, not captured in other fields.">
+				>
+				["at0013"] = <
+					text = <"Nothing at all">
+					description = <"No breathlessness at all (Borg CR10 = 0).">
+				>
+				["at0014"] = <
+					text = <"Very slight">
+					description = <"Very slight breathlessness (Borg CR10 = 1).">
+				>
+				["at0015"] = <
+					text = <"Slight">
+					description = <"Slight (light) breathlessness (Borg CR10 = 2).">
+				>
+				["at0016"] = <
+					text = <"Moderate">
+					description = <"Moderate breathlessness (Borg CR10 = 3).">
+				>
+				["at0017"] = <
+					text = <"Somewhat severe">
+					description = <"Somewhat severe breathlessness (Borg CR10 = 4).">
+				>
+				["at0018"] = <
+					text = <"Severe">
+					description = <"Severe (heavy) breathlessness (Borg CR10 = 5).">
+				>
+				["at0019"] = <
+					text = <"Severe to very severe">
+					description = <"Breathlessness between severe and very severe (Borg CR10 = 6).">
+				>
+				["at0020"] = <
+					text = <"Very severe">
+					description = <"Very severe breathlessness (Borg CR10 = 7).">
+				>
+				["at0021"] = <
+					text = <"Very severe to very, very severe">
+					description = <"Breathlessness between very severe and very, very severe (Borg CR10 = 8).">
+				>
+				["at0022"] = <
+					text = <"Very, very severe">
+					description = <"Very, very severe (almost maximal) breathlessness (Borg CR10 = 9).">
+				>
+				["at0023"] = <
+					text = <"Maximal">
+					description = <"Maximal breathlessness (Borg CR10 = 10).">
+				>
+				["at0024"] = <
+					text = <"None">
+					description = <"No walking aid was used.">
+				>
+				["at0025"] = <
+					text = <"Walking stick/cane">
+					description = <"A walking stick or cane was used.">
+				>
+				["at0026"] = <
+					text = <"Crutches">
+					description = <"One or more crutches were used.">
+				>
+				["at0027"] = <
+					text = <"Walking frame/rollator">
+					description = <"A walking frame or rollator was used.">
+				>
+				["at0028"] = <
+					text = <"Wheelchair">
+					description = <"A wheelchair was used (self-propelled or assisted).">
+				>
+				["at0029"] = <
+					text = <"Other">
+					description = <"Another walking aid not otherwise listed was used.">
+				>
+			>
+		>
+	>
