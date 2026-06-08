@@ -1,0 +1,577 @@
+{
+  "@type" : "TEMPLATE",
+  "uid" : "74b50979-ab22-4351-bfdc-cc5191ea0ac5",
+  "description" : {
+    "@type" : "RESOURCE_DESCRIPTION",
+    "originalAuthor" : {
+      "date" : "2021-03-07"
+    },
+    "otherContributors" : [ ],
+    "lifecycleState" : {
+      "codeString" : "unmanaged"
+    },
+    "ipAcknowledgements" : { },
+    "references" : { },
+    "conversionDetails" : { },
+    "otherDetails" : {
+      "original_language" : "ISO_639-1::en",
+      "MD5-CAM-1.0.1" : "de132f5b4d8fc60501b11f686c130deb",
+      "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
+    },
+    "details" : {
+      "en" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "en"
+        },
+        "purpose" : "A simple template containing only the most commonly used main data elements of Body temperature, Blood pressure, Body mass index, Height/Length, Body weight, Pulse/Heart beat, Respiration, and Pulse oximetry. Non-metric unit alternatives have been constrained out.",
+        "originalResourceUri" : { },
+        "otherDetails" : { }
+      },
+      "de" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "de"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "sv" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "sv"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "fi" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "fi"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "ko" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "ko"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "pt-br" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "pt-br"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "ar-sy" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "ar-sy"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "it" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "it"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "fr" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "fr"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "es" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "es"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "pt-pt" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "pt-pt"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "es-ar" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "es-ar"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "nb" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "nb"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "nl" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "nl"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      },
+      "ca" : {
+        "@type" : "RESOURCE_DESCRIPTION_ITEM",
+        "language" : {
+          "terminologyId" : {
+            "value" : "ISO_639-1"
+          },
+          "codeString" : "ca"
+        },
+        "originalResourceUri" : { },
+        "otherDetails" : {
+          "notes" : "Generated automatically by Adl Designer"
+        }
+      }
+    }
+  },
+  "parentArchetypeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+  "differential" : true,
+  "archetypeId" : {
+    "@type" : "ARCHETYPE_HRID",
+    "value" : "openEHR-EHR-COMPOSITION.t_encounter.v1"
+  },
+  "definition" : {
+    "@type" : "C_COMPLEX_OBJECT",
+    "rmTypeName" : "COMPOSITION",
+    "nodeId" : "at0000.1",
+    "attributes" : [ {
+      "@type" : "C_ATTRIBUTE",
+      "rmAttributeName" : "context",
+      "children" : [ {
+        "@type" : "C_COMPLEX_OBJECT",
+        "rmTypeName" : "EVENT_CONTEXT",
+        "attributes" : [ ],
+        "attributeTuples" : [ ]
+      } ]
+    } ],
+    "attributeTuples" : [ ]
+  },
+  "terminology" : {
+    "@type" : "ARCHETYPE_TERMINOLOGY",
+    "conceptCode" : "at0000",
+    "termDefinitions" : {
+      "ar-sy" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "*Interaction, contact or care event between a subject of care and healthcare provider(s).(en)"
+        }
+      },
+      "en" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+        }
+      },
+      "es-ar" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interacción, contacto o evento de cuidados entre un sujeto de cuidados y uno o más proveedores de cuidados de la salud."
+        }
+      },
+      "ko" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "*Interaction, contact or care event between a subject of care and healthcare provider(s).(en)"
+        }
+      },
+      "pt-br" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interação, contato ou cuidado entre o sujeito do cuidado e profissional(is) de saúde."
+        }
+      },
+      "es" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interacción, contacto o evento de cuidado entre un paciente y un proveedor de salud."
+        }
+      },
+      "nl" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interactie, contact of zorggebeurtenis tussen een onderwerp van zorg en zorgverlener(s)."
+        }
+      },
+      "sv" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Kontakt mellan patient och vårdgivare, eller vårdhändelse inom hälso- och sjukvården."
+        }
+      },
+      "de" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interaktion, Kontakt oder Versorgungsereignis, zwischen einem Versorgungsempfänger und einem Gesundheitsdienstleister."
+        }
+      },
+      "fi" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Hoitohenkilön ja terveydenhuollon tarjoajan välinen vuorovaikutus, kontakti- tai hoitotapahtuma."
+        }
+      },
+      "it" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interazione, contatto o evento di cura tra un soggetto di cura e il/i fornitore/i di assistenza sanitaria."
+        }
+      },
+      "fr" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interaction, contact ou événement de soins entre un sujet de soins et un ou des prestataires de soins."
+        }
+      },
+      "nb" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interaksjon, kontakt eller omsorgshendelse mellom et individ og helsepersonell."
+        }
+      },
+      "pt-pt" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interação, contato ou evento de cuidados entre um sujeito e um provedor de saúde."
+        }
+      },
+      "ca" : {
+        "at0000.1" : {
+          "@type" : "ARCHETYPE_TERM",
+          "code" : "at0000.1",
+          "text" : "vital_signs2",
+          "description" : "Interacció, contacte o esdeveniment d’atenció entre un pacient i un o més professionals d'atenció sanitària."
+        }
+      }
+    },
+    "termBindings" : { },
+    "terminologyExtracts" : { },
+    "valueSets" : { }
+  },
+  "adlVersion" : "1.4",
+  "buildUid" : "ed2cc0eb-c508-3e66-a7bc-0e3f3e3f196f",
+  "rmName" : "openehr",
+  "rmRelease" : "1.1.0",
+  "generated" : true,
+  "templateId" : "Vital signs",
+  "otherMetaData" : { },
+  "templateOverlays" : [ ],
+  "originalLanguage" : {
+    "terminologyId" : {
+      "value" : "ISO_639-1"
+    },
+    "codeString" : "en"
+  },
+  "translations" : [ {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "de"
+    },
+    "author" : {
+      "name" : "Anneka Sargeant",
+      "organisation" : "Medizinische Informatik, UMG",
+      "email" : "anneka.sargeant@med.uni-goettingen.de"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "sv"
+    },
+    "author" : {
+      "name" : "Kirsi Poikela, Per Nemirovski, Åsa Skagerhult, Manna Vosta",
+      "organisation" : "Tieto Sweden AB, B3 HealthTech, Region Östergötland, Karolinska University Hospital",
+      "email" : "ext.kirsi.poikela@tieto.com, per.nemirovski@b3.se, asa.skagerhult@regionostergotland.se, manna.vosta@regionstockholm.se"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "fi"
+    },
+    "author" : { },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "ko"
+    },
+    "author" : {
+      "name" : "Seung-Jong Yu",
+      "organisation" : "NOUSCO Co.,Ltd.",
+      "email" : "seungjong.yu@gmail.com"
+    },
+    "accreditation" : "Certified Board of Family Medicine in South Korea",
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "pt-br"
+    },
+    "author" : {
+      "name" : "Vladimir Pizzo",
+      "organisation" : "Hospital Sirio Libanes, Brazil",
+      "email" : "vladimir.pizzo@hsl.org.br"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "ar-sy"
+    },
+    "author" : {
+      "name" : "Mona Saleh"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "it"
+    },
+    "author" : {
+      "name" : "Paolo Anedda",
+      "organisation" : "Inpeco",
+      "email" : "paolo.anedda@inpeco.com"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "fr"
+    },
+    "author" : {
+      "name" : "Vanessa Pereira",
+      "organisation" : "Better - Pathfinder",
+      "email" : "vanessapereira@protonmail.com"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "es"
+    },
+    "author" : {
+      "name" : "Pablo Pazos, Clara Calleja Vega",
+      "organisation" : "CaboLabs, CatSalut. Servei Català de la Salut.",
+      "email" : "ccalleja@catsalut.cat"
+    },
+    "accreditation" : "Computer Engineer",
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "pt-pt"
+    },
+    "author" : {
+      "name" : "Diana Ferreira",
+      "email" : "dianaferreira_16@hotmail.com"
+    },
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "es-ar"
+    },
+    "author" : {
+      "name" : "Edgardo Vazquez",
+      "organisation" : "VinculoMedico"
+    },
+    "accreditation" : "Medical Doctor",
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "nb"
+    },
+    "author" : {
+      "name" : "Lars Bitsch-Larsen, Vebjørn Arntzen",
+      "organisation" : "Haukeland University Hospital of Bergen, Norway, Oslo University Hospital",
+      "email" : "lbla@helse-bergen.no, varntzen@ous-hf.no"
+    },
+    "accreditation" : "MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine.",
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "nl"
+    },
+    "author" : {
+      "name" : "Dennis Valk",
+      "organisation" : "Code24 BV",
+      "email" : "dennis.valk@code24.nl, dennis@code24.nl"
+    },
+    "accreditation" : "Code24 BV",
+    "otherDetails" : { }
+  }, {
+    "@type" : "TRANSLATION_DETAILS",
+    "language" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "ca"
+    },
+    "author" : {
+      "name" : "Laura Moral Lopez",
+      "organisation" : "Sistema de Salut de Catalunya",
+      "email" : "lauramoral@catsalut.cat"
+    },
+    "otherDetails" : { }
+  } ]
+}
