@@ -1,0 +1,49 @@
+{
+  "@type": "TEMPLATE",
+  "uid": "9b385263-4037-47d4-8d79-42fcdc588e07",
+  "templateId": "6 Minute Walk Test",
+  "description": {
+    "@type": "RESOURCE_DESCRIPTION",
+    "originalAuthor": {
+      "date": "2026-06-08",
+      "name": "Sebastian Iancu",
+      "organisation": "Code24",
+      "email": "sebastian.iancu@code24.nl"
+    },
+    "lifecycleState": {
+      "codeString": "unmanaged"
+    },
+    "otherDetails": {
+      "original_language": "ISO_639-1::en"
+    },
+    "details": {
+      "en": {
+        "@type": "RESOURCE_DESCRIPTION_ITEM",
+        "language": {
+          "terminologyId": { "value": "ISO_639-1" },
+          "codeString": "en"
+        },
+        "purpose": "A minimal template recording a 6-minute walk test (distance walked, duration, laps, Borg breathlessness, walking aid, course length) within an encounter."
+      }
+    }
+  },
+  "originalLanguage": "ISO_639-1::en",
+  "adlVersion": "1.4",
+  "rmName": "openEHR",
+  "definition": {
+    "rmType": "COMPOSITION",
+    "nodeId": "openEHR-EHR-COMPOSITION.encounter.v1",
+    "name": "6 Minute Walk Test",
+    "min": 1,
+    "max": 1,
+    "children": [
+      {
+        "rmType": "OBSERVATION",
+        "nodeId": "openEHR-EHR-OBSERVATION.six_minute_walk_test.v0",
+        "name": "6 Minute Walk Test",
+        "min": 0,
+        "max": 1
+      }
+    ]
+  }
+}
