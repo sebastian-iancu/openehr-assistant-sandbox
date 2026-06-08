@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>7481293d-cea9-44b7-8cf8-e82f5fed4140</id>
+  <name>GGZ Rapportage</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Vastleggen van een enkele GGZ-rapportage (decursus): het verslag van een behandelcontact. De rapportage is primair vrije tekst; SOEP (Subjectief/Objectief/Evaluatie/Plan) wordt in v1 als schrijfconventie (kopjes) gehanteerd. Optioneel kan de reden van contact worden vastgelegd.</purpose>
+      <use>Per behandelcontact in de GGZ. De decursus is de chronologische reeks van deze composities en wordt opgevraagd via AQL (gesorteerd op context/start_time).</use>
+      <misuse>Niet gebruiken voor gestructureerde SOEP-velden of koppeling aan behandeldoelen; die zijn voorzien voor v2.</misuse>
+    </details>
+    <other_details>
+      <item>
+        <key>Care setting</key>
+        <value>mental healthcare (openEHR Terminology setting::802)</value>
+      </item>
+      <item>
+        <key>Roadmap v2</key>
+        <value>Coded contact type/modality; discrete SOEP (e.g. SECTION.soap.v1); behandeldoel linkage (EVALUATION.goal.v1 / RM LINK)</value>
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="GGZ Rapportage">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical synopsis" path="/content" name="Rapportage" min="1" max="1">
+      <Rule path="/data[at0001]/items[at0002]" min="1" max="1" name="Rapportage" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1" concept_name="Reason for encounter" path="/content" name="Reden van contact" min="0" max="1" />
+    <Context />
+  </definition>
+</template>
