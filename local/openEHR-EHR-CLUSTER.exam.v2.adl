@@ -7,6 +7,14 @@ concept
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+				["name"] = <"Sebastian Iancu">
+				["organisation"] = <"Code24">
+				["email"] = <"sebastian.iancu@code24.nl">
+			>
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
@@ -78,6 +86,24 @@ description
 	lifecycle_state = <"published">
 	other_contributors = <"Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","SB Bhattacharyya, Sudisa Consultancy Services, India","Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway","Shahla Foozonkhah, Iran ministry of health and education, Iran","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom (openEHR Editor)","Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)","Ingrid Heitmann, Oslo universitetssykehus HF, Norway","Hilde Hollås, DIPS ASA, Norway","Evelyn Hovenga, EJSH Consulting, Australia","Lars Ivar Mehlum, Helse Bergen HF, Norway","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom","Lars Morgan Karlsen, DIPS ASA, Norway","Bjørn Næss, DIPS ASA, Norway","Andrej Orel, Marand d.o.o., Slovenia","Vladimir Pizzo, Hospital Sírio Libanês, Brazil","Jussara Rotzsch, UNB, Brazil","Anoop Shah, University College London, United Kingdom","Line Silsand, Universitetssykehuset i Nord-Norge, Norway","Norwegian Review Summary, Nasjonal IKT HF, Norway","Nyree Taylor, Ocean Informatics, Australia (openEHR Editor)","Rowan Thomas, St. Vincent's Hospital Melbourne, Australia","Jon Tysdahl, Furst medlab AS, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
 	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Vastleggen van de bevindingen die zijn waargenomen tijdens het lichamelijk onderzoek van een lichaamssysteem of anatomische structuur.">
+			use = <"Gebruik om de waargenomen bevindingen tijdens het lichamelijk onderzoek van een lichaamssysteem of anatomische structuur vast te leggen.
+
+Dit archetype is specifiek ontworpen voor gebruik in de SLOT 'Onderzoeksdetail' binnen OBSERVATION.exam of de SLOT 'Proceduredetail' binnen het archetype ACTION.procedure, maar kan ook worden gebruikt binnen andere ENTRY- of CLUSTER-archetypen wanneer dit klinisch passend is. Specialisaties van dit archetype worden gebruikt om onderzoeksbevindingen vast te leggen voor specifieke lichaamssystemen, anatomische structuren of nauwkeuriger omschreven lichaamslocaties. Elke specialisatie behoudt de onderliggende structuur van dit algemene archetype als basis en wordt uitgebreid met elementen die specifiek zijn voor de lichaamslocatie. Als er geen passende specialisatie beschikbaar is, gebruik dan dit archetype en geef het onderzochte systeem of de onderzochte structuur aan met het data-element 'Onderzocht systeem of structuur' en de locatie op het lichaam met het data-element 'Lichaamslocatie' of de SLOT 'Gestructureerde lichaamslocatie'.
+
+De interpretatie van de bevindingen, bijvoorbeeld 'Geen afwijking vastgesteld' of 'Matige ontsteking aanwezig', kan worden vastgelegd met het data-element 'Klinische interpretatie'.
+
+Gebruik om een kader te bieden waarin CLUSTER-archetypen kunnen worden genest in de SLOT 'Onderzoeksbevindingen' om aanvullende gestructureerde bevindingen van lichamelijk onderzoek vast te leggen.
+
+Het archetype CLUSTER.exclusion_exam kan worden genest in de SLOT 'Onderzoek niet uitgevoerd' om optioneel expliciete details vast te leggen over het niet uitvoeren van het onderzoek.
+
+Gebruik om de tekstuele beschrijvingen van klinische bevindingen uit bestaande of verouderde klinische systemen in een gearchetypeerd formaat op te nemen, met behulp van het data-element 'Klinische beschrijving'.">
+			misuse = <"Niet gebruiken om de klinische voorgeschiedenis vast te leggen - gebruik daarvoor specifieke OBSERVATION- en CLUSTER-archetypen. Bijvoorbeeld OBSERVATION.story en CLUSTER.symptom_sign.
+
+Niet gebruiken om de resultaten van een beeldvormend onderzoek vast te leggen - gebruik daarvoor de archetypefamilie CLUSTER.imaging_exam.">
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Aufzeichnung der bei der körperlichen Untersuchung eines Körpersystems oder einer anatomischen Struktur beobachteten Befunde.">
@@ -288,6 +314,54 @@ definition
 
 ontology
 	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bevindingen lichamelijk onderzoek">
+					description = <"Bevindingen die zijn waargenomen tijdens het lichamelijk onderzoek van een lichaamssysteem of anatomische structuur.">
+				>
+				["at0001"] = <
+					text = <"Onderzocht systeem of structuur">
+					description = <"Identificatie van het onderzochte lichaamssysteem of de onderzochte anatomische structuur.">
+					comment = <"Codering van het onderzochte systeem of de onderzochte structuur met een terminologie heeft de voorkeur, waar mogelijk.">
+				>
+				["at0003"] = <
+					text = <"Klinische beschrijving">
+					description = <"Tekstuele beschrijving van de algehele bevindingen die zijn waargenomen tijdens het lichamelijk onderzoek.">
+				>
+				["at0004"] = <
+					text = <"Onderzoeksbevindingen">
+					description = <"Gestructureerde details over de bevindingen van het lichamelijk onderzoek.">
+				>
+				["at0005"] = <
+					text = <"Multimediarepresentatie">
+					description = <"Digitale afbeelding, video of diagram die de bevindingen van het lichamelijk onderzoek weergeeft.">
+				>
+				["at0006"] = <
+					text = <"Klinische interpretatie">
+					description = <"Eén woord, woordgroep of korte beschrijving die de klinische betekenis en significantie van de bevindingen van het lichamelijk onderzoek weergeeft.">
+					comment = <"Bijvoorbeeld: 'Geen afwijking vastgesteld' of 'Matige ontsteking aanwezig'. Codering van de 'Klinische interpretatie' met een terminologie heeft de voorkeur, waar mogelijk.">
+				>
+				["at0007"] = <
+					text = <"Commentaar">
+					description = <"Aanvullende tekst over de bevindingen van het lichamelijk onderzoek die niet in andere velden is vastgelegd.">
+				>
+				["at0008"] = <
+					text = <"Onderzoek niet uitgevoerd">
+					description = <"Details om expliciet vast te leggen dat dit onderzoek niet is uitgevoerd.">
+				>
+				["at0011"] = <
+					text = <"Gestructureerde lichaamslocatie">
+					description = <"Een gestructureerde beschrijving van het lichaamsgebied dat wordt onderzocht.">
+					comment = <"Als de lichaamslocatie volledig is geïdentificeerd in het data-element 'Onderzocht systeem of structuur' of 'Lichaamslocatie', wordt deze SLOT overbodig.">
+				>
+				["at0012"] = <
+					text = <"Lichaamslocatie">
+					description = <"Identificatie van het lichaamsgebied dat wordt onderzocht.">
+					comment = <"Bijvoorbeeld onderzoek van een specifiek huidgebied. Als de lichaamslocatie volledig is geïdentificeerd in het data-element 'Onderzocht systeem of structuur', wordt dit data-element overbodig.">
+				>
+			>
+		>
 		["en"] = <
 			items = <
 				["at0000"] = <
