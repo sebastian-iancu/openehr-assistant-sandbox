@@ -377,7 +377,7 @@ git commit -m "feat(6mwt): compose 6MWT + pulse/BP/SpO2 into template content"
 
 ```bash
 ls "local/openEHR-EHR-OBSERVATION.six_minute_walk_test.v0.adl"
-grep -o 'openEHR-EHR-[A-Za-z]*\.[a-z_]*\.v[0-9]' "local/Six minute walk test.t.json" | sort -u
+grep -o 'openEHR-EHR-[A-Za-z]*\.[a-z_0-9-]*\.v[0-9]' "local/Six minute walk test.t.json" | sort -u   # hyphen-aware: matches report-result
 ```
 Expected: the new OBSERVATION file exists; grep lists exactly the five ids from the Reference values section.
 
