@@ -1,0 +1,342 @@
+archetype (adl_version=1.4; uid=591861dc-d950-4fde-ac32-01012193dcae)
+	openEHR-EHR-OBSERVATION.six_minute_walk_test.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2026-06-09">
+		["name"] = <"Sebastian Iancu">
+		["organisation"] = <"Code24">
+		["email"] = <"sebastian.iancu@code24.nl">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the summary results of a six-minute walk test (6MWT).">
+			keywords = <"6MWT","walk test","six-minute walk","exercise tolerance","functional capacity","distance walked">
+			copyright = <"© openEHR Foundation">
+			use = <"Use to record the summary results of a six-minute walk test (6MWT), a sub-maximal exercise test that measures the distance an individual is able to walk over a period of six minutes on a hard, flat surface.
+
+The archetype records a single summary event for the test, capturing the total distance walked (6MWD), the number of laps completed, the lowest peripheral oxygen saturation (SpO₂) and peak heart rate observed during the test, patient-rated breathlessness and fatigue on the modified Borg CR10 scale at the end of the test, whether the test was completed, and a clinical interpretation.
+
+Details of any supplemental oxygen delivered during the test can be recorded using a CLUSTER archetype nested in the 'Supplemental oxygen' slot in the state.">
+			misuse = <"Not to be used to record incremental or shuttle walk tests, or other exercise tolerance tests - use specific OBSERVATION archetypes for those purposes.
+
+Not to be used to record continuous timed series of measurements during the test - this archetype models a single summary event only.">
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"Code24">
+		["original_namespace"] = <"nl.code24">
+		["original_publisher"] = <"Code24">
+		["custodian_namespace"] = <"nl.code24">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Six-minute walk test
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {1..1} matches {    -- 6MWT summary
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {1..1} matches {    -- Distance walked
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"m">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {    -- Laps completed
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {    -- Lowest SpO₂ during test
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"%">
+														magnitude = <|0.0..100.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {    -- Peak heart rate during test
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::382]>
+												list = <
+													["1"] = <
+														units = <"/min">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {    -- Borg dyspnoea (end of test)
+										value matches {
+											DV_ORDINAL matches {
+												0|[local::at0018],    -- Nothing at all
+												1|[local::at0019],    -- Very slight
+												2|[local::at0020],    -- Slight
+												3|[local::at0021],    -- Moderate
+												4|[local::at0022],    -- Somewhat severe
+												5|[local::at0023],    -- Severe
+												6|[local::at0024],    -- Level 6
+												7|[local::at0025],    -- Very severe
+												8|[local::at0026],    -- Level 8
+												9|[local::at0027],    -- Very, very severe (almost maximal)
+												10|[local::at0028]    -- Maximal
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {    -- Borg fatigue (end of test)
+										value matches {
+											DV_ORDINAL matches {
+												0|[local::at0029],    -- Nothing at all
+												1|[local::at0030],    -- Very slight
+												2|[local::at0031],    -- Slight
+												3|[local::at0032],    -- Moderate
+												4|[local::at0033],    -- Somewhat severe
+												5|[local::at0034],    -- Severe
+												6|[local::at0035],    -- Level 6
+												7|[local::at0036],    -- Very severe
+												8|[local::at0037],    -- Level 8
+												9|[local::at0038],    -- Very, very severe (almost maximal)
+												10|[local::at0039]    -- Maximal
+											}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {    -- Test completed
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {true, false}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {    -- Clinical interpretation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {    -- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0013] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0014] occurrences matches {0..1} matches {    -- Supplemental oxygen
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.inspired_oxygen\.v1/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0015] matches {    -- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {    -- Extension
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Six-minute walk test">
+					description = <"The summary results of a six-minute walk test (6MWT).">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"6MWT summary">
+					description = <"A single summary event representing the overall result of the six-minute walk test.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Distance walked">
+					description = <"The total distance walked during the six-minute walk test (6MWD).">
+				>
+				["at0005"] = <
+					text = <"Laps completed">
+					description = <"The number of laps completed during the test.">
+				>
+				["at0006"] = <
+					text = <"Lowest SpO₂ during test">
+					description = <"The lowest peripheral oxygen saturation (SpO₂) observed during the test.">
+				>
+				["at0007"] = <
+					text = <"Peak heart rate during test">
+					description = <"The highest heart rate observed during the test.">
+				>
+				["at0008"] = <
+					text = <"Borg dyspnoea (end of test)">
+					description = <"Patient-rated breathlessness at the end of the test on the modified Borg CR10 scale.">
+				>
+				["at0009"] = <
+					text = <"Borg fatigue (end of test)">
+					description = <"Patient-rated leg/general fatigue at the end of the test on the modified Borg CR10 scale.">
+				>
+				["at0010"] = <
+					text = <"Test completed">
+					description = <"An indication whether the six-minute walk test was completed.">
+				>
+				["at0011"] = <
+					text = <"Clinical interpretation">
+					description = <"A clinical interpretation of the results of the six-minute walk test.">
+				>
+				["at0012"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the six-minute walk test not captured in other fields.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Supplemental oxygen">
+					description = <"Details of any supplemental oxygen delivered during the test.">
+				>
+				["at0015"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Extension">
+					description = <"Additional structured detail not otherwise modelled.">
+				>
+				["at0018"] = <
+					text = <"Nothing at all">
+					description = <"Nothing at all.">
+				>
+				["at0019"] = <
+					text = <"Very slight">
+					description = <"Very slight.">
+				>
+				["at0020"] = <
+					text = <"Slight">
+					description = <"Slight.">
+				>
+				["at0021"] = <
+					text = <"Moderate">
+					description = <"Moderate.">
+				>
+				["at0022"] = <
+					text = <"Somewhat severe">
+					description = <"Somewhat severe.">
+				>
+				["at0023"] = <
+					text = <"Severe">
+					description = <"Severe.">
+				>
+				["at0024"] = <
+					text = <"Level 6">
+					description = <"Level 6.">
+				>
+				["at0025"] = <
+					text = <"Very severe">
+					description = <"Very severe.">
+				>
+				["at0026"] = <
+					text = <"Level 8">
+					description = <"Level 8.">
+				>
+				["at0027"] = <
+					text = <"Very, very severe (almost maximal)">
+					description = <"Very, very severe (almost maximal).">
+				>
+				["at0028"] = <
+					text = <"Maximal">
+					description = <"Maximal.">
+				>
+				["at0029"] = <
+					text = <"Nothing at all">
+					description = <"Nothing at all.">
+				>
+				["at0030"] = <
+					text = <"Very slight">
+					description = <"Very slight.">
+				>
+				["at0031"] = <
+					text = <"Slight">
+					description = <"Slight.">
+				>
+				["at0032"] = <
+					text = <"Moderate">
+					description = <"Moderate.">
+				>
+				["at0033"] = <
+					text = <"Somewhat severe">
+					description = <"Somewhat severe.">
+				>
+				["at0034"] = <
+					text = <"Severe">
+					description = <"Severe.">
+				>
+				["at0035"] = <
+					text = <"Level 6">
+					description = <"Level 6.">
+				>
+				["at0036"] = <
+					text = <"Very severe">
+					description = <"Very severe.">
+				>
+				["at0037"] = <
+					text = <"Level 8">
+					description = <"Level 8.">
+				>
+				["at0038"] = <
+					text = <"Very, very severe (almost maximal)">
+					description = <"Very, very severe (almost maximal).">
+				>
+				["at0039"] = <
+					text = <"Maximal">
+					description = <"Maximal.">
+				>
+			>
+		>
+	>

@@ -7,6 +7,14 @@ concept
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+				["name"] = <"Sebastian Iancu">
+				["organisation"] = <"Code24">
+				["email"] = <"sebastian.iancu@code24.nl">
+			>
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
@@ -102,6 +110,21 @@ description
 	lifecycle_state = <"published">
 	other_contributors = <"Sheryl Alexander, NT Department of Health, Australia","Tomas Alme, DIPS, Norway","Nadim Anani, Karolinska Institutet, Sweden","Rita Apelt, Department of Health,NT, Australia","Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)","Lars Bitsch-Larsen, Haukeland University Hospital, Bergen, Norway","Margaret Campbell, Queensland Health, Australia","Rong Chen, Cambio Healthcare Systems, Sweden","B Christensen, HUS, Norway","Stephen Chu, Queensland Health, Australia","Margaret Cotter, AMSANT, Australia","Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway","Michelle Dowden, Miwatj Health Ngalkanbuy Health, Australia","Samo Drnovsek, Marand ltd, Slovenia","Einar Fosse, UNN HF, Norwegian Centre for Integrated Care and Telemedicine, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom (openEHR Editor)","Tim Garden, NTG Department of Health, Australia","Tanya Gardner, CAAC, Australia","Sam Heard, Ocean Informatics, Australia (Editor)","Ingrid Heitmann, Oslo universitetssykehus HF, Norway","Andreas Hering, Helse Bergen HF, Haukeland universitetssjukehus, Norway","Anca Heyd, DIPS ASA, Norway","Lars Morgan Karlsen, DIPS ASA, Norway","Russell Leftwich, Russell B Leftwich MD, United States","Sabine Leh, Haukeland University Hospital, Department of Pathology, Norway","Heather Leslie, Ocean Informatics, Australia (openEHR Editor)","Hallvard Lærum, Oslo Universitetssykehus HF, Norway","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom","Bjørn Næss, DIPS ASA, Norway","Jeremy Oats, NT Health, Australia","Anne Pauline Anderssen, Helse Nord RHF, Norway","Rune Pedersen, Universitetssykehuset i Nord Norge, Norway","Steven Schatz, Department of Health (Northern Territory), Australia","Anoop Shah, University College London, United Kingdom","Line Sæle, Nasjonal IKT, Norway","John Tore Valand, Helse Bergen, Norway (openEHR Editor)","Cherie Whitbread, Royal Darwin Hospital, Australia","Jo Wright, NT Dept of Health, Australia (Editor)","Lin Zhang, BIPH, China">
 	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Vastleggen van details over de bevindingen bij het lichamelijk onderzoek van de zorgvrager.">
+			keywords = <"onderzoek","lichamelijk","lichamelijk onderzoek","bevindingen","klinisch">
+			use = <"Gebruik om details over de bevindingen bij het lichamelijk onderzoek van de zorgvrager vast te leggen. Dit kan een tekstuele beschrijving van de bevindingen omvatten, een kader waarin gedetailleerde CLUSTER-onderzoeksarchetypen kunnen worden genest, en een klinische interpretatie van de bevindingen.
+
+Voorbeelden van gedetailleerde CLUSTER-onderzoeksarchetypen zijn archetypen die inspectie, palpatie, auscultatie, percussie en beweging van lichaamssystemen of anatomische structuren beschrijven, zoals CLUSTER.exam_pupils.
+
+Tekstuele beschrijvingen van klinische bevindingen uit bestaande klinische systemen kunnen worden vastgelegd met het data-element 'Beschrijving'.
+
+Zorgverleners willen soms een samenvattende uitdrukking zoals 'chronische otitis media' vastleggen als interpretatie van het lichamelijk onderzoek. In de context van het archetype voor lichamelijk onderzoek moet dit uitsluitend worden opgevat als 'de lichamelijke verschijnselen zijn verenigbaar met chronische otitis media'. Hoewel de samenvattende uitdrukking een diagnose lijkt weer te geven, vereist veilig en consistent bevragen dat een diagnose wordt vastgelegd met het archetype EVALUATION.problem_diagnosis, zelfs als de uitdrukkingen identiek zijn.">
+			misuse = <"Niet gebruiken om waarnemingen uit de anamnese vast te leggen - gebruik daarvoor specifieke OBSERVATION- en CLUSTER-archetypen. Bijvoorbeeld OBSERVATION.story en CLUSTER.symptom.
+
+Niet gebruiken om op zichzelf staande klinische observaties vast te leggen - gebruik daarvoor specifieke OBSERVATION-archetypen. Bijvoorbeeld OBSERVATION.blood_pressure, OBSERVATION.body_weight of OBSERVATION.height.">
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur detaillierten Aufzeichnung von Befunden der körperlichen Untersuchung eines Pflegebedürftigen.">
@@ -336,6 +359,70 @@ definition
 
 ontology
 	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Bevindingen lichamelijk onderzoek">
+					description = <"Bevindingen die zijn waargenomen tijdens het lichamelijk onderzoek van een zorgvrager.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Elke gebeurtenis">
+					description = <"Standaard, niet-gespecificeerd tijdstip of intervalgebeurtenis dat expliciet kan worden gedefinieerd in een template of tijdens runtime.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Beschrijving">
+					description = <"Tekstuele beschrijving van de algehele bevindingen die zijn waargenomen tijdens het lichamelijk onderzoek van een patiënt.">
+					comment = <"Kan worden gebruikt om een tekstuele samenvatting vast te leggen van het volledige klinische onderzoek of van belangrijke aspecten van de bevindingen van het klinische onderzoek, ondersteund door gestructureerde gegevens. Details van specifieke gestructureerde bevindingen kunnen worden opgenomen met CLUSTER-archetypen in de SLOT 'Onderzoeksdetails'. Dit data-element kan worden gebruikt om verouderde gegevens vast te leggen die niet in een gestructureerd formaat beschikbaar zijn.">
+				>
+				["at0005"] = <
+					text = <"Onderzoeksdetails">
+					description = <"Gestructureerde details van het lichamelijk onderzoek.">
+					comment = <"Gedetailleerde klinische bevindingen worden vastgelegd als CLUSTER-archetypen die binnen deze SLOT kunnen worden genest om de fractale aard van het klinische onderzoek weer te geven en variatie in de eisen van zorgverleners aan de onderzoeksdocumentatie mogelijk te maken. Bijvoorbeeld: CLUSTER.palpation_of_uterus, CLUSTER.palpation_of_cervix en CLUSTER.palpation_of_fetus kunnen in deze SLOT of in elkaar worden genest om de specifieke eisen weer te geven van zorgverleners die werkzaam zijn in de verloskunde - inhoud, prioriteiten en mate van detail verschillen afhankelijk van de klinische context, professionele achtergrond en specialisme.">
+				>
+				["at0006"] = <
+					text = <"Interpretatie">
+					description = <"Eén woord, woordgroep of korte beschrijving die de klinische betekenis en significantie van de bevindingen van het lichamelijk onderzoek weergeeft.">
+					comment = <"Codering met een terminologie heeft de voorkeur, indien mogelijk. Bijvoorbeeld 'normaal onderzoek' of 'trommelvliesperforatie'.">
+				>
+				["at0007"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Verstorende factoren">
+					description = <"Beschrijving van eventuele toevallige factoren die kunnen hebben bijgedragen aan de bevindingen van het lichamelijk onderzoek.">
+				>
+				["at0009"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Apparaatdetails">
+					description = <"Details over een eventueel apparaat dat tijdens het lichamelijk onderzoek is gebruikt.">
+				>
+				["at0011"] = <
+					text = <"Commentaar">
+					description = <"Aanvullende tekst over de algehele bevindingen van het lichamelijk onderzoek die niet in andere velden is vastgelegd.">
+				>
+				["at0012"] = <
+					text = <"Extensie">
+					description = <"Aanvullende informatie die nodig is om lokale inhoud vast te leggen of om aan te sluiten op andere referentiemodellen/formalismen.">
+					comment = <"Bijvoorbeeld lokale informatiebehoeften of aanvullende metadata om aan te sluiten op equivalenten in FHIR of CIMI.">
+				>
+				["at0013"] = <
+					text = <"Lichaamshouding">
+					description = <"De lichaamshouding van de zorgvrager tijdens het onderzoek.">
+				>
+			>
+		>
 		["ar-sy"] = <
 			items = <
 				["at0000"] = <

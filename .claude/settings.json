@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__openehr-assistant",
+      "mcp__plugin_openehr-assistant_openehr-assistant"
+    ]
+  }
+}

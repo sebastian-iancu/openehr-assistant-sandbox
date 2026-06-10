@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>ed7b00de-0752-4d4b-97dc-2623c29fdadc</id>
+  <name>Rapportage</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Sebastian Iancu</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Code24</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>sebastian.iancu@code24.nl</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2026-06-09</value>
+      </item>
+    </original_author>
+    <lifecycle_state>Initial</lifecycle_state>
+    <purpose>Generieke GGZ-rapportage: vastleggen van een vrije-tekst verslag (rapportage) over een client, gekoppeld aan een contact/encounter. De rapportagetekst is een narratieve weergave vanuit het perspectief van de zorgverlener.</purpose>
+    <use>Gebruik dit template om per contact één narratieve rapportage vast te leggen. Wie (auteur/composer), wanneer (contactdatum) en de rol van de zorgverlener worden vastgelegd in het referentiemodel (COMPOSITION.composer, EVENT_CONTEXT), niet in dit template.</use>
+    <misuse>Niet gebruiken voor gestructureerde gegevens (problemen, diagnoses, metingen) — gebruik daarvoor de betreffende EVALUATION/OBSERVATION archetypen. Niet gebruiken voor SOEP-gestructureerde behandelrapportage of voor rapportage gekoppeld aan behandeldoelen; daarvoor is een apart template bedoeld.</misuse>
+    <other_details>
+      <item>
+        <key>original_language</key>
+        <value>ISO_639-1::nl</value>
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter" name="Rapportage">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical synopsis" name="Rapportage" path="/content" min="1" max="1">
+      <Rule path="/data[at0001]/items[at0002]" name="Rapportage" min="1" max="1"/>
+      <Rule path="/protocol[at0003]/items[at0004]" max="0"/>
+    </Content>
+    <Context>
+      <Rule path="/context/other_context[at0001]/items[at0002]" max="0"/>
+    </Context>
+  </definition>
+</template>

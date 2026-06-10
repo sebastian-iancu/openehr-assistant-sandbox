@@ -7,6 +7,14 @@ concept
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+				["name"] = <"Sebastian Iancu">
+				["organisation"] = <"Code24">
+				["email"] = <"sebastian.iancu@code24.nl">
+			>
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			author = <
@@ -66,6 +74,30 @@ description
 	lifecycle_state = <"published">
 	other_contributors = <"Andreas Abildgaard, OUS, Norway","Marit Alice Venheim, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Vebjørn Arntzen, Oslo University Hospital, Norway (openEHR Editor)","Silje Ljosland Bakke, Helse Vest IKT AS, Norway (openEHR Editor)","SB Bhattacharyya, Bhattacharyyas Clinical Records Research & Informatics LLP, India","Sharmila Biswas, Australia","Randi Brendberg, Helse Nord RHF, Norway","Eric Browne","David Cartwright, Queensland Health, Australia","Stephen Chu, NEHTA, Australia (Editor)","Matthew Cordell, NEHTA, Australia","Andre de Wolf, NeHTA, Australia","Gunn Elin Blakkisrud, DIPS ASA, Norway","David Evans, Queensland Health, Australia","Peter Fedorcsak, University of Oslo, Norway (openEHR Editor)","Kåre Flø, DIPS ASA, Norway","Hildegard Franke, freshEHR Clinical Informatics Ltd., United Kingdom","Jacquie Garton-Smith, Royal Perth Hospital and DoHWA, Australia","Heather Grain, Llewelyn Grain Informatics, Australia","Grahame Grieve, Health Intersections Pty Ltd, Australia (Editor)","Roar Holm, Helse Vest IKT A/S, Norway","Kija Indrearne, Helse Bergen, Norway","Mikkel Johan Gaup Grønmo, Regional forvaltning EPJ, Helse Nord, Norway (Nasjonal IKT redaktør)","Aud Jorunn Mjelstad, Helse Bergen, Norway","Mary Kelaher, NEHTA, Australia","Diane Kirkham, NEHTA, Australia","Anjali Kulkarni, Karkinos, India","Kanika Kuwelker, Helse Vest IKT, Norway (Nasjonal IKT redaktør)","Robert L'egan, NEHTA, Australia","Liv Laugen, ​Oslo University Hospital, Norway, Norway (openEHR Editor)","Heather Leslie, Atomica Informatics, Australia (openEHR Editor)","Luis Marco Ruiz, NST, Spain","Mike Martyn, The Hobart Anaesthetic Group, Australia","Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)","Chris Mitchell, RACGP, Australia","Stewart Morrison, NEHTA, Australia","Arunakiry Natarajan, medondo, Germany","Mikael Nyström, Cambio Healthcare Systems AB, Sweden","Bjørn Næss, DIPS ASA, Norway","Michael Osborne, Mater Health Services, Australia","Ning Pan, NEHTA, Australia","Chris Pearce, Melbourne East GP Network, Australia","Jodie Pycroft, Adelaide Northern Division of General Practice Ltd, Australia","Cathy Richardson, NEHTA, Australia","Stephen Royce, NEHTA, Australia","Eleanor Royle, NEHTA, Australia","Don Stewart, NEHTA, Australia","Natalia Strauch, Medizinische Hochschule Hannover, Germany","Norwegian Review Summary, Norwegian Public Hospitals, Norway","Michael Thompson, Queensland Health, Australia","Olav Thorsen, Stavanger University Hospital, Norway","Gordon Tomes, Australian Institute of Health and Welfare, Australia","John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)","Richard Townley-O'Neill, NEHTA, Australia">
 	details = <
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Vastleggen van de bevindingen bij beeldvormend onderzoek van een specifieke lichaamsstructuur of -regio en de interpretatie daarvan, met behulp van radiologische technieken.">
+			keywords = <"beeld, radiologie, modaliteit, röntgen, CT, echografie, MRI, diagnostisch, scan, röntgenfoto, beeldvorming, biomagnetisch, densitometrie, tomografie, radiografie, magnetisch, resonantie, mammografie, nucleaire geneeskunde, positron, PET, angiografie, fluoroscopie", ...>
+			use = <"Gebruik om de bevindingen bij beeldvormend onderzoek van een specifieke lichaamsstructuur of -regio en de interpretatie daarvan vast te leggen, met behulp van radiologische technieken.
+
+Dit archetype is ontworpen met de nadruk op het rapporteren van bevindingen en interpretatie behorend bij één beeldvormend onderzoek (equivalent aan één DICOM-onderzoek). Verwijzingen naar DICOM-gerelateerde attributen zijn opgenomen, maar de nadruk ligt op de weergave van een klinisch verslag van een beeldvormend onderzoek en niet op het weergeven van DICOM-gerelateerde attributen die binnen een radiologie-informatiesysteem te verwachten zijn. Specifieke details over de DICOM-serie kunnen worden vastgelegd met het CLUSTER.imaging_series dat is genest in de SLOT 'Seriedetails'.
+
+Gedetailleerde bevindingen die tijdens een beeldvormend onderzoek worden waargenomen en gericht zijn op een specifieke structuur of regio kunnen worden vastgelegd door het CLUSTER.imaging_exam en/of de bijbehorende familie van gespecialiseerde archetypen te nesten in de SLOT 'Gestructureerde beeldvormende bevindingen' in dit archetype. Het is de bedoeling dat de specifieke details in elke specialisatie na verloop van tijd worden uitgebreid met bevindingen voor alle beeldvormende modaliteiten.
+
+Als een beeldvormend onderzoek wordt uitgevoerd als onderdeel van een complexere activiteit, zoals een chirurgische ingreep die onder beeldvormende geleiding wordt uitgevoerd, moeten de beeldvormende bevindingen met dit archetype worden vastgelegd.
+Gestructureerde details over de chirurgische ingreep en de toegediende medicatie of contrastmiddelen moeten worden vastgelegd met respectievelijk de archetypen ACTION.procedure en/of ACTION.medication. In deze situatie wordt aanbevolen om alle gerelateerde archetypen binnen dezelfde template te rapporteren.
+
+Dit resultaat wordt doorgaans aan de aanvragende zorgverlener gerapporteerd als één component binnen de context van een overkoepelend op COMPOSITION gebaseerd verslag.">
+			misuse = <"Niet gebruiken om bevindingen bij lichamelijk onderzoek vast te leggen. Gebruik daarvoor het CLUSTER.exam en/of de bijbehorende familie van gespecialiseerde archetypen.
+
+Niet gebruiken om de functionaliteit of specificaties van een radiologie-informatiesysteem of bronsysteem te repliceren.
+
+Niet gebruiken om gestructureerde details over een uitgevoerde ingreep vast te leggen. Gebruik daarvoor de specifieke aan de ingreep gerelateerde archetypen, zoals het archetype ACTION.procedure.
+
+Niet gebruiken om gestructureerde details over medicatie die tijdens het beeldvormend onderzoek is toegediend vast te leggen. Gebruik daarvoor specifieke aan medicatie gerelateerde archetypen, zoals het archetype ACTION.medication.
+
+Niet gebruiken om foto's of video's in het zorgdossier vast te leggen. Gebruik daarvoor het archetype CLUSTER.media_file.">
+		>
 		["de"] = <
 			language = <[ISO_639-1::de]>
 			purpose = <"Zur Darstellung der Ergebnisse einer bildgebenden Untersuchung einer bestimmten Körperstruktur oder -region und deren Interpretation mit radiologischen Verfahren.">
@@ -535,6 +567,321 @@ definition
 
 ontology
 	term_definitions = <
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Resultaat beeldvormend onderzoek">
+					description = <"Het resultaat van een beeldvormend onderzoek dat bij een individu is uitgevoerd, met behulp van radiologische technieken.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Elke gebeurtenis">
+					description = <"Standaard, niet-gespecificeerd tijdstip of intervalgebeurtenis dat expliciet kan worden gedefinieerd in een template of tijdens runtime.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Naam onderzoek">
+					description = <"De naam van het uitgevoerde beeldvormend onderzoek.">
+					comment = <"Bijvoorbeeld: 'CT abdomen'; 'Doppler-echografie van de nierarterie' of 'Standaard thoraxröntgenfoto'. Codering met een terminologie wordt sterk aanbevolen, bij voorkeur een term die zowel de modaliteit als de anatomische locatie aangeeft, waar mogelijk. Voorbeelden van mogelijke terminologieën zijn de LOINC Imaging Document Codes, RadLex Playbook of SNOMED CT. Equivalent aan DiagnosticReport.code in FHIR.">
+				>
+				["at0006"] = <
+					text = <"Gestructureerde beoogde lichaamslocatie">
+					description = <"Gestructureerde details over de lichaamslocatie of regio waarop de beeldvorming is gericht.">
+					comment = <"Als de lichaamslocatie is aangegeven in de tekst of code voor 'Naam onderzoek', kan dit veld overbodig zijn.">
+				>
+				["at0008"] = <
+					text = <"Beeldvormende bevindingen">
+					description = <"Tekstuele beschrijving of overzicht van alle klinische bevindingen.">
+				>
+				["at0014"] = <
+					text = <"Klinische samenvatting">
+					description = <"Tekstuele beschrijving van de relevante klinische voorgeschiedenis die context biedt voor het onderzoek en de interpretatie van de resultaten.">
+					comment = <"Als alternatief kan dit data-element een RM-koppeling bevatten naar klinische informatie uit de oorspronkelijke onderzoeksaanvraag of elders in het zorgdossier.">
+				>
+				["at0020"] = <
+					text = <"Beeldvormende diagnose">
+					description = <"Eén woord, woordgroep of korte beschrijving die de waarschijnlijke aandoening of diagnose weergeeft.">
+					comment = <"Dit data-element heeft meerdere occurrences om meer dan één differentiaaldiagnose mogelijk te maken. Codering met een terminologie zoals SNOMED CT heeft de voorkeur, waar mogelijk. Dit data-element moet als wederzijds uitsluitend worden beschouwd ten opzichte van 'Beeldvormende differentiaaldiagnose', d.w.z. in elke instantie van het archetype 'Resultaat beeldvormend onderzoek' wordt ofwel 'Beeldvormende diagnose' ofwel 'Beeldvormende differentiaaldiagnose' gebruikt. Equivalent aan DiagnosticReport.conclusionCode in FHIR.">
+				>
+				["at0021"] = <
+					text = <"Algehele impressie">
+					description = <"Beknopte, klinisch relevante tekstuele interpretatie van alle beeldvormende bevindingen, inclusief een vergelijking met eerdere onderzoeken waar van toepassing.">
+					comment = <"Ook wel aangeduid als 'Beoordeling' of 'Conclusie'. Equivalent aan DiagnosticReport.conclusion in FHIR.">
+				>
+				["at0023"] = <
+					text = <"Commentaar">
+					description = <"Aanvullende tekst over het onderzoek die niet in andere velden is vastgelegd.">
+					comment = <"Bijvoorbeeld: een notitie dat de opname aan de patiënt is meegegeven. Equivalent aan DiagnosticReport.note in FHIR.">
+				>
+				["at0025"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0026"] = <
+					text = <"Beeldvormende dienst">
+					description = <"Details over de dienst, organisatie of persoon die het beeldvormend onderzoek uitvoert.">
+				>
+				["at0027"] = <
+					text = <"Details onderzoeksaanvraag">
+					description = <"Details over één aangevraagd beeldvormend onderzoek.">
+				>
+				["at0028"] = <
+					text = <"Aanvrager-orderidentificatie">
+					description = <"Unieke identificatie voor de order van het beeldvormend onderzoek, toegekend door de aanvrager.">
+					comment = <"Equivalent aan de HL7 Placer Order Identifier.">
+				>
+				["at0029"] = <
+					text = <"Naam aangevraagd onderzoek">
+					description = <"Identificatie van het aangevraagde beeldvormend onderzoek.">
+					comment = <"Dit kan nuttig zijn in situaties waarin het aangevraagde onderzoek verschilt van het uitgevoerde onderzoek.">
+				>
+				["at0030"] = <
+					text = <"Aanvrager">
+					description = <"Details over de zorgverlener en/of organisatie die het beeldvormend onderzoek aanvraagt.">
+					comment = <"Equivalent aan DICOM Referring Physician's Name (0008,0090).">
+				>
+				["at0031"] = <
+					text = <"Ontvanger-orderidentificatie">
+					description = <"Unieke identificatie voor de order van het beeldvormend onderzoek, toegekend door de radiologische dienst.">
+					comment = <"Equivalent aan de HL7 Filler Order Identifier of het DICOM-attribuut Accession number (0008,0050).">
+				>
+				["at0041"] = <
+					text = <"Gestructureerde techniek/procedure">
+					description = <"Aanvullende gestructureerde details over technische en klinische aspecten van het vastleggen van de beelden.">
+				>
+				["at0044"] = <
+					text = <"Gestructureerde beeldvormende bevindingen">
+					description = <"Gestructureerde details over de bevindingen van het beeldvormend onderzoek gericht op een specifieke structuur of regio.">
+				>
+				["at0045"] = <
+					text = <"Verslagrepresentatie">
+					description = <"Digitale representatie van het onderzoeksresultaat.">
+					comment = <"Meerdere formaten zijn toegestaan, maar deze moeten gelijkwaardige klinische inhoud weergeven. Bijvoorbeeld een pdf-versie van het verslag. Equivalent aan DiagnosticReport.presentedForm in FHIR.">
+				>
+				["at0046"] = <
+					text = <"Extensie">
+					description = <"Aanvullende informatie die nodig is om het model uit te breiden met lokale inhoud of om aan te sluiten op andere referentiemodellen of formalismen.">
+					comment = <"Bijvoorbeeld: lokale informatiebehoeften; of aanvullende metadata om aan te sluiten op FHIR.">
+				>
+				["at0047"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0048"] = <
+					text = <"Verstorende factoren">
+					description = <"Tekstuele beschrijving van factoren, die niet elders zijn vastgelegd, die de onderzoeksbevindingen en/of het resultaat kunnen beïnvloeden.">
+				>
+				["at0049"] = <
+					text = <"Samenvatting techniek">
+					description = <"Tekstuele beschrijving van de radiologische procedure die is gebruikt om het onderzoek vast te leggen.">
+					comment = <"Gebruik dit data-element om een samenvatting van de techniek te beschrijven, inclusief technische beperkingen of afwijkingen van de normale technische procedures. Bijvoorbeeld: '5 mm axiale beelden van de longbasis tot aan de symfyse werden verkregen na toediening van intraveneus en oraal contrast. Coronale en sagittale gereformatteerde beelden werden geconstrueerd uit de brongegevens.'">
+				>
+				["at0055"] = <
+					text = <"Beoogde lichaamslocatie">
+					description = <"Beschrijving van de eenvoudige lichaamslocatie of regio waarop de beeldvorming is gericht.">
+					comment = <"Als de lichaamslocatie is aangegeven in de tekst of code voor 'Naam onderzoek', kan dit veld overbodig zijn. Codering van 'Beoogde lichaamslocatie' met een terminologie, zoals SNOMED CT, is wenselijk. Equivalent aan ImagingStudy.series.bodySite in FHIR.">
+				>
+				["at0056"] = <
+					text = <"Vergelijkende bevindingen">
+					description = <"Tekstuele beschrijving van de vergelijking van dit onderzoek met eerdere vergelijkbare onderzoeken.">
+					comment = <"Gebruik dit data-element ook om aan te geven of er geen vergelijkingsbeelden en/of -verslagen beschikbaar zijn. Details over de voor vergelijking gebruikte beelden kunnen worden vastgelegd met de CLUSTER 'Details vergelijkingsonderzoek' binnen Protocol.">
+				>
+				["at0057"] = <
+					text = <"Beschrijving beeldkwaliteit">
+					description = <"Tekstuele beschrijving van de kwaliteit van het onderzoek.">
+					comment = <"Bijvoorbeeld: de aard van eventuele beperkingen en de impact daarvan op de interpretatie; de aanbeveling om het onderzoek te herhalen; of de vraag of een alternatieve beoordelingsmethode geschikter zou zijn.">
+				>
+				["at0058"] = <
+					text = <"Beeldvormende differentiaaldiagnose">
+					description = <"Eén woord, woordgroep of korte beschrijving die een mogelijke aandoening of diagnose weergeeft.">
+					comment = <"Dit data-element heeft meerdere occurrences om meer dan één differentiaaldiagnose mogelijk te maken. Codering met een terminologie zoals SNOMED CT heeft de voorkeur, waar mogelijk. Dit data-element moet als wederzijds uitsluitend worden beschouwd ten opzichte van 'Beeldvormende diagnose', d.w.z. in elke instantie van het archetype 'Resultaat beeldvormend onderzoek' wordt ofwel 'Beeldvormende diagnose' ofwel 'Beeldvormende differentiaaldiagnose' gebruikt.">
+				>
+				["at0059"] = <
+					text = <"Aanbeveling">
+					description = <"Suggestie voor verdere beeldvorming, onderzoeken en/of verwijzing, en de bijbehorende onderbouwing.">
+					comment = <"Dit data-element heeft 0..* occurrences om meer dan één aanbeveling mogelijk te maken. Formele orders voor aanvullend beeldvormend onderzoek of onderzoek moeten worden vastgelegd met een INSTRUCTION-archetype, zoals INSTRUCTION.service_request.">
+				>
+				["at0061"] = <
+					text = <"Klinische indicatie">
+					description = <"Tekstuele beschrijving van de reden waarom het onderzoek oorspronkelijk is aangevraagd.">
+					comment = <"Ook bekend als 'Klinische vraag' of 'Klinische vraagstelling'.">
+				>
+				["at0062"] = <
+					text = <"Samenvatting procedure">
+					description = <"Tekstuele beschrijving van de klinische procedure of andere klinische overwegingen die zijn gebruikt om het onderzoek vast te leggen.">
+					comment = <"Gebruik dit data-element om een samenvatting te beschrijven van de klinische procedure, de positionering van de patiënt, interventies zoals de Valsalva-manoeuvre, en de toediening van contrastmiddel, radiofarmaca en/of behandelingen als onderdeel van het beeldvormend onderzoek. Bijvoorbeeld: '80 ml Isovue-370 werd intraveneus toegediend met een bolus-tracking-techniek gericht op de truncus pulmonalis'. Het kan ook worden gebruikt om een overzicht vast te leggen van eventuele problemen, complicaties of bijwerkingen die zich hebben voorgedaan.">
+				>
+				["at0063"] = <
+					text = <"Beeldkwaliteit">
+					description = <"Beoordeling van de kwaliteit van het onderzoek.">
+					comment = <"Codering van de beeldkwaliteit met een waardenset wordt aanbevolen. Bijvoorbeeld: 'uitstekend, goed, redelijk, slecht en niet-diagnostisch'; of 'adequaat, suboptimaal en inadequaat'.">
+				>
+				["at0065"] = <
+					text = <"Seriedetails">
+					description = <"Details over een serie die in dit verslag is opgenomen.">
+				>
+				["at0067"] = <
+					text = <"Details vergelijkingsserie">
+					description = <"Details over een beeldvormende serie die wordt vergeleken met het gerapporteerde onderzoek.">
+				>
+				["at0069"] = <
+					text = <"Apparaat">
+					description = <"Details over het beeldvormend apparaat of de apparaten die zijn gebruikt om het onderzoek vast te leggen.">
+				>
+				["at0070"] = <
+					text = <"Datum onderzoek">
+					description = <"Datum/tijd waarop de beeldvorming is gestart.">
+					comment = <"Equivalent aan ImagingStudy.started in FHIR.">
+				>
+				["at0071"] = <
+					text = <"Tijdstempel status">
+					description = <"De datum en/of tijd waarop 'Algehele resultaatstatus' is toegekend.">
+				>
+				["at0072"] = <
+					text = <"Algehele resultaatstatus">
+					description = <"De status van het resultaat van het beeldvormend onderzoek als geheel.">
+					comment = <"De waarden zijn afgestemd op de FHIR Diagnostic report status, met uitzondering van 'Entered in error', die alleen relevant is voor een berichtgericht paradigma. Andere lokale codes/termen kunnen worden gebruikt via de keuze voor Text. In de meeste gevallen is op elk moment slechts één status van toepassing, maar dit data-element staat meerdere occurrences toe voor gevallen waarin verschillende soorten status moeten worden gespecificeerd, doorgaans binnen een template. Equivalent aan DiagnosticReport.status in FHIR.">
+				>
+				["at0073"] = <
+					text = <"Geregistreerd">
+					description = <"Het bestaan van het onderzoek is geregistreerd, maar er is nog geen resultaat beschikbaar.">
+				>
+				["at0074"] = <
+					text = <"Gedeeltelijk">
+					description = <"Dit is een gedeeltelijk (bijv. initieel, tussentijds of voorlopig) resultaat, maar de gegevens kunnen onvolledig of niet-geverifieerd zijn.">
+				>
+				["at0075"] = <
+					text = <"Voorlopig">
+					description = <"Geverifieerde vroege resultaten zijn beschikbaar, maar niet alle resultaten zijn definitief. Dit is een subcategorie van 'Gedeeltelijk'.">
+				>
+				["at0076"] = <
+					text = <"Definitief">
+					description = <"Het resultaat is volledig en geverifieerd door een geautoriseerd persoon.">
+				>
+				["at0077"] = <
+					text = <"Gewijzigd">
+					description = <"Nadat het definitief was, is het resultaat gewijzigd.">
+				>
+				["at0078"] = <
+					text = <"Gecorrigeerd">
+					description = <"Nadat het definitief was, is het resultaat gewijzigd om een fout te corrigeren. Dit is een subcategorie van 'Gewijzigd'.">
+				>
+				["at0079"] = <
+					text = <"Aangevuld">
+					description = <"Nadat het definitief was, is het resultaat gewijzigd door nieuwe inhoud toe te voegen. De bestaande inhoud is ongewijzigd. Dit is een subcategorie van 'Gewijzigd'.">
+				>
+				["at0080"] = <
+					text = <"Geannuleerd">
+					description = <"Het resultaat is niet beschikbaar omdat het onderzoek niet is gestart of niet is voltooid (soms ook 'afgebroken' genoemd).">
+				>
+				["at0083"] = <
+					text = <"Distributielijst">
+					description = <"Details van aanvullende zorgverleners of organisaties die een kopie van het onderzoeksresultaat nodig hebben.">
+					comment = <"De 'Distributielijst' is uitsluitend ter informatie; de primaire ontvanger van het verslag is de persoon die geacht wordt naar aanleiding van de informatie te handelen.">
+				>
+				["at0087"] = <
+					text = <"Techniek">
+					description = <"Naam van de radiologische procedure die is gebruikt om het onderzoek vast te leggen.">
+					comment = <"Codering van de 'Techniek' met een terminologie is toegestaan. Meerdere occurrences maken het mogelijk om een of meer technieken te identificeren.">
+				>
+				["at0088"] = <
+					text = <"Procedure">
+					description = <"Identificatie van de klinische procedure of behandeling die is gebruikt om het onderzoek vast te leggen.">
+				>
+				["at0090"] = <
+					text = <"Onbekend">
+					description = <"De status van het resultaat is niet bekend.">
+				>
+				["at0091"] = <
+					text = <"Modaliteit">
+					description = <"Het type beeldvormend apparaat, proces of methode dat de gegevens die zijn gebruikt om de beelden in het onderzoek te creëren oorspronkelijk heeft verworven of geproduceerd.">
+					comment = <"Bijvoorbeeld: 'röntgen', 'CT-scan', 'echografie', 'MRI', 'botdensitometrie', 'tomografie', 'mammografie', 'nucleaire geneeskunde', 'PET', 'angiografie' en 'fluoroscopie'. Dit data-element kan overbodig zijn als de modaliteit duidelijk is weergegeven in de 'Naam onderzoek'. Als alternatief is het mogelijk om de 'Modaliteit' automatisch te vullen vanuit een gecodeerde 'Naam onderzoek'. Codering van de 'Modaliteit' met een waardenset wordt aanbevolen, zoals de DICOM CID 29 Acquisition Modality value set. Equivalent aan ImagingStudy.modality in FHIR en Modality (0008, 0060) in DICOM.">
+				>
+				["at0092"] = <
+					text = <"Onderzoeksinstantie-identificatie">
+					description = <"Unieke identificatie voor het beeldvormend onderzoek, toegekend door het beeldvormend apparaat.">
+					comment = <"Equivalent aan Study Instance UID (0020,000D) in DICOM en ImagingStudy.identifier in FHIR.">
+				>
+				["at0093"] = <
+					text = <"Details vergelijkingsonderzoek">
+					description = <"Details over beelden uit een eerder onderzoek die zijn gebruikt voor vergelijking met het gerapporteerde onderzoek.">
+				>
+				["at0094"] = <
+					text = <"Naam onderzoek">
+					description = <"De naam van het uitgevoerde beeldvormend vergelijkingsonderzoek.">
+				>
+				["at0095"] = <
+					text = <"Onderzoeksidentificatie">
+					description = <"Unieke identificatie voor het beeldvormend vergelijkingsonderzoek.">
+				>
+				["at0096"] = <
+					text = <"Datum onderzoek">
+					description = <"Datum en tijd waarop het vergelijkingsonderzoek is gestart.">
+				>
+				["at0097"] = <
+					text = <"Onderzoekseindpunt">
+					description = <"Digitale locatie van de beeldvormende inhoud en metadata van de vergelijking.">
+					comment = <"Deze locatie identificeert de netwerkdienst die toegang biedt (voor opslag, weergave, bevraging of ophalen) voor het onderzoek. Equivalent aan ImagingStudy.endpoint in FHIR.">
+				>
+				["at0098"] = <
+					text = <"Onderzoekseindpunt">
+					description = <"Digitale locatie van de beeldvormende inhoud en metadata.">
+					comment = <"Deze locatie identificeert de netwerkdienst die toegang biedt (voor opslag, weergave, bevraging of ophalen) voor het onderzoek. Equivalent aan ImagingStudy.endpoint in FHIR.">
+				>
+				["at0099"] = <
+					text = <"Onderzoeksstatus">
+					description = <"De huidige toestand van het beeldvormend onderzoek.">
+					comment = <"Equivalent aan ImagingStudy.status in FHIR.">
+				>
+				["at0100"] = <
+					text = <"Geregistreerd">
+					description = <"Het bestaan van het beeldvormend onderzoek is geregistreerd, maar er is nog niets beschikbaar.">
+				>
+				["at0101"] = <
+					text = <"Beschikbaar">
+					description = <"Er is ten minste één instantie gekoppeld aan dit beeldvormend onderzoek.">
+				>
+				["at0102"] = <
+					text = <"Geannuleerd">
+					description = <"Het beeldvormend onderzoek is niet beschikbaar omdat het onderzoek niet is gestart of niet is voltooid.">
+				>
+				["at0103"] = <
+					text = <"Onbekend">
+					description = <"De status is niet bekend bij het radiologische bronsysteem.">
+				>
+				["at0104"] = <
+					text = <"Verslagidentificatie">
+					description = <"Unieke identificatie voor het beeldvormend verslag, toegekend door de radiologische dienst.">
+					comment = <"Aangezien per onderzoek één instantie van dit archetype wordt gebruikt, kan deze identificatie worden gebruikt om meer dan één beeldvormend onderzoek binnen één gecombineerd verslag met elkaar te verbinden. Equivalent aan DiagnosticReport.identifier in FHIR.">
+				>
+				["at0105"] = <
+					text = <"Onderzoeksbeschrijving">
+					description = <"Door de radiologische dienst gegenereerde beschrijving of classificatie van het onderzoek.">
+					comment = <"Equivalent aan ImagingStudy.description in FHIR en Study description (0008, 1030) in DICOM. Mogelijke DICOM-voorbeelden: MR BREAS, UNIT; NEURO^HEAD; of MR BREASTUNI UE.">
+				>
+				["at0106"] = <
+					text = <"Beelddetails">
+					description = <"Koppeling naar de volledige details van eventuele beeldvorming die tijdens het onderzoek is uitgevoerd.">
+					comment = <"Verwijst doorgaans naar beelden van de DICOM-compatibele modaliteiten, maar dit gegevensveld biedt een alternatieve methode om toegang te krijgen tot de beelden. Equivalent aan DiagnosticReport.imagingStudy in FHIR.">
+				>
+				["at0107"] = <
+					text = <"Stabiliserend hulpmiddel">
+					description = <"Identificatie van een stabiliserend hulpmiddel dat in gebruik is.">
+					comment = <"Bijvoorbeeld: braces, gipsverband, externe fixatie.">
+				>
+				["at0108"] = <
+					text = <"Lichaamshouding">
+					description = <"Houding van het individu tijdens het beeldvormend onderzoek.">
+					comment = <"Bijvoorbeeld: staand of liggend.">
+				>
+			>
+		>
 		["en"] = <
 			items = <
 				["at0000"] = <
